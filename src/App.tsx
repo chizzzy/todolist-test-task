@@ -3,25 +3,10 @@ import { Filter, Todo } from "./types";
 import styles from "./App.module.css";
 import { v4 as uuidv4 } from "uuid";
 import { FilterButton, TodoList } from "./components";
-import { FILTERS } from "./utils";
+import { FILTERS, filterOptions } from "./utils";
 
 const generateItemsLeftLabel = (todosToComplete: number) =>
   `${todosToComplete} item${todosToComplete === 1 ? "" : "s"} left!`;
-
-const filterOptions = [
-  {
-    name: FILTERS.ALL,
-    text: "All",
-  },
-  {
-    name: FILTERS.ACTIVE,
-    text: "Active",
-  },
-  {
-    name: FILTERS.COMPLETED,
-    text: "Completed",
-  },
-];
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -114,10 +99,9 @@ const App: React.FC = () => {
               <div className={styles.filters}>
                 {filterOptions.map((filterOption) => (
                   <FilterButton
-                    filter={filterOption.name}
+                    {...filterOption}
                     activeFilter={filter}
                     setFilter={setFilter}
-                    text={filterOption.text}
                   />
                 ))}
               </div>
