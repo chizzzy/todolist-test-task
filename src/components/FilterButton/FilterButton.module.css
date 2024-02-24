@@ -1,0 +1,13 @@
+@import "../../globals.css";
+
+.filterButton {
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.filterButton.active {
+  box-shadow: 0 0 2px 2px var(--border-primary-color);
+  outline: 0;
+}
