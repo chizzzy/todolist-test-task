@@ -3,7 +3,25 @@ import { Filter, Todo } from "./types";
 import styles from "./App.module.css";
 import { v4 as uuidv4 } from "uuid";
 import { FilterButton, TodoList } from "./components";
-import { FILTERS, filterOptions } from "./utils";
+import { FILTERS } from "./utils";
+
+export const filterOptions = [
+  {
+    key: FILTERS.ALL,
+    filter: FILTERS.ALL,
+    text: "All",
+  },
+  {
+    key: FILTERS.ACTIVE,
+    filter: FILTERS.ACTIVE,
+    text: "Active",
+  },
+  {
+    key: FILTERS.COMPLETED,
+    filter: FILTERS.COMPLETED,
+    text: "Completed",
+  },
+];
 
 const generateItemsLeftLabel = (todosToComplete: number) =>
   `${todosToComplete} item${todosToComplete === 1 ? "" : "s"} left!`;
